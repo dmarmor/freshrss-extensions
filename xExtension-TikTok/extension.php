@@ -11,9 +11,11 @@ class TikTokExtension extends Minz_Extension {
             if (preg_match('#tiktok\.com/@[^/]+/video/(\d+)#', $url, $m)) {
                 $videoId = $m[1];
                 $embed = '<iframe src="https://www.tiktok.com/embed/'.$videoId.'" 
-                           width="325" height="575" 
+                           width="323" height="738" 
                            frameborder="0" allowfullscreen></iframe>';
                 $entry->_content($embed);
+                // Remove enclosures to prevent thumbnail images from displaying
+                $entry->_attribute('enclosures', []);
             }
         }
         return $entry;
