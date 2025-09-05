@@ -4,6 +4,10 @@ A collection of extensions for [FreshRSS](https://freshrss.org/), a free, self-h
 
 ## Extensions
 
+### [RssBridge](xExtension-RssBridge/README.md)
+
+Sends new feeds through [RSS-Bridge](https://github.com/rss-bridge/rss-bridge), to generate feeds for websites that don't have one.
+
 ### [VideoEmbed](xExtension-VideoEmbed/README.md)
 
 Embeds videos directly in RSS entries for TikTok and YouTube, replacing external links with inline video players.
