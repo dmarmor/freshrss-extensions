@@ -12,6 +12,9 @@ Embeds videos directly in RSS entries for TikTok and YouTube, replacing external
 
 1. Either clone the repository via `git clone https://github.com/dmarmor/freshrss-extensions.git` or click the **Code** button, select *Download Zip*.
 2. Copy the `xExtension-*` folder for each extension you want into the `extensions` folder for your FreshRSS server.
+3. In FreshRSS, go to Configuration → Extensions (you may have to reload).
+4. Enable each extension you want.
+5. Click the gear icon for each extension to set options.
 
 ## Requirements
 - FreshRSS 1.16.0 or higher

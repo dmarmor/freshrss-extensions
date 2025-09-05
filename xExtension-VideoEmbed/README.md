@@ -10,12 +10,6 @@ Embeds videos directly in RSS entries for supported platforms, replacing externa
 - **TikTok**: Embeds videos with proper vertical dimensions
 - **YouTube**: Embeds both regular videos and vertical shorts, with optional text description below the video
 
-## Installation
-1. Copy the `xExtension-VideoEmbed` folder to your FreshRSS `extensions` directory
-2. In FreshRSS, go to Configuration → Extensions (you may have to reload)
-3. Enable the "VideoEmbed" extension
-4. Configure which platforms you want to embed and any other options
-
 ## Configuration
 
 ### Platform Selection
