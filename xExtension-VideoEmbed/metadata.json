@@ -1,8 +1,8 @@
 {
-  "name": "TikTok",
-  "author": "Mayostard",
-  "description": "Filters TikTok RSS items and replaces them with a clean video player.",
-  "version": "0.1.0",
-	"entrypoint": "TikTok",
+  "name": "VideoEmbed",
+  "author": "dmarmor",
+  "description": "Embeds video players for TikTok and YouTube in RSS feeds.",
+  "version": "1.0.0",
+	"entrypoint": "VideoEmbed",
 	"type": "user"
 }
