@@ -7,6 +7,13 @@
 		</div>
 	</div>
 
+	<div class="form-group">
+		<label class="group-name" for="rss_bridge_token"><?php echo _t('ext.rssbridge.token'); ?></label>
+		<div class="group-controls">
+			<input type="text" name="rss_bridge_token" id="rss_bridge_token" value="<?php echo FreshRSS_Context::$system_conf->rss_bridge_token; ?>" placeholder="Optional authentication token">
+		</div>
+	</div>
+
 	<div class="form-group form-actions">
 		<div class="group-controls">
 			<button type="submit" class="btn btn-important"><?php echo _t('gen.action.submit'); ?></button>

@@ -7,6 +7,7 @@ To use it, upload this entire directory to the FreshRSS `./extensions` directory
 ## Configuration settings
 
 * `rss_bridge_url`: the URL for an RSS-Bridge instance e.g. `https://example.com/rss-bridge/`
+* `rss_bridge_token`: (optional) authentication token for secured RSS-Bridge instances
 
 ## Bridge availability
 
