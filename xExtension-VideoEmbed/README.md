@@ -19,4 +19,4 @@ Embeds videos directly in RSS entries for supported platforms, replacing externa
 
 ## Version History
 
-Please see Changelog
+Please see [changelog](CHANGELOG.md)
