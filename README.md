@@ -23,4 +23,4 @@ Embeds videos directly in RSS entries for TikTok and YouTube, replacing external
 Issues and pull requests are welcome! Please ensure any changes follow FreshRSS conventions and code is well-documented.
 
 ## License
-This project is licensed under the same terms as FreshRSS.
+This project is licensed under [GNU AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.html)
