@@ -68,17 +68,25 @@ class VideoEmbedExtension extends Minz_Extension {
             $videoId = $this->extractYouTubeVideoId($url);
             if ($videoId) {
                 $isShorts = strpos($url, '/shorts/') !== false;
+                
+                // Set dimensions based on video type
                 if ($isShorts) {
                     // YouTube Shorts - vertical format
-                    $embed = '<iframe src="https://www.youtube.com/embed/'.$videoId.'" 
-                               width="315" height="560" 
-                               frameborder="0" allowfullscreen></iframe>';
+                    $width = 315;
+                    $height = 560;
                 } else {
-                    // Regular YouTube video - horizontal format  
-                    $embed = '<iframe src="https://www.youtube.com/embed/'.$videoId.'" 
-                               width="560" height="315" 
-                               frameborder="0" allowfullscreen></iframe>';
+                    // Regular YouTube video - horizontal format
+                    $width = 560;
+                    $height = 315;
                 }
+                
+                // Create iframe with appropriate dimensions
+                $embed = '<iframe src="https://www.youtube.com/embed/'.$videoId.'" 
+                           width="'.$width.'" height="'.$height.'" 
+                           frameborder="0" 
+                           referrerpolicy="no-referrer-when-downgrade"
+                           allow="encrypted-media" 
+                           allowfullscreen></iframe>';
                 
                 // Extract and format description if enabled
                 $formattedDescription = '';
