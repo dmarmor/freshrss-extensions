@@ -81,12 +81,14 @@ class VideoEmbedExtension extends Minz_Extension {
                 }
                 
                 // Create iframe with appropriate dimensions
-                $embed = '<iframe src="https://www.youtube.com/embed/'.$videoId.'" 
-                           width="'.$width.'" height="'.$height.'" 
-                           frameborder="0" 
-                           referrerpolicy="no-referrer-when-downgrade"
-                           allow="encrypted-media" 
-                           allowfullscreen></iframe>';
+                $embed = '<iframe width="'.$width.'" height="'.$height.'"' .
+                    ' src="https://www.youtube.com/embed/'.$videoId.'"' .
+                    ' title="YouTube video player"' .
+                    ' frameborder="0"' .
+                    ' allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"' .
+                    ' referrerpolicy="strict-origin-when-cross-origin"' .
+                    // referrerpolicy="no-referrer-when-downgrade"
+                    ' allowfullscreen></iframe>';
                 
                 // Extract and format description if enabled
                 $formattedDescription = '';
