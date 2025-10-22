@@ -36,15 +36,15 @@ class RssBridgeExtension extends Minz_Extension {
 	}
 
 	public static function RssBridgeDetect($url) {
-		$bridge_url = FreshRSS_Context::$system_conf->rss_bridge_url .
-			'?action=detect&format=Atom&url=' . rawurlencode($url);
-		
-		// Add token if configured
+		// Add token if configured (must be first parameter for some feeds)
 		$token = FreshRSS_Context::$system_conf->rss_bridge_token ?? '';
+		$token_param = '';
 		if (!empty($token)) {
-			$token = 'token=' . rawurlencode($token);
-			$bridge_url .= '&' . $token;
+			$token_param = 'token=' . rawurlencode($token) . '&';
 		}
+
+		$bridge_url = FreshRSS_Context::$system_conf->rss_bridge_url .
+			'?' . $token_param . 'action=detect&format=Atom&url=' . rawurlencode($url);
 
 		// Get both headers and response body
 		$context = stream_context_create([
@@ -74,11 +74,17 @@ class RssBridgeExtension extends Minz_Extension {
 				if (strpos($redirect_url, 'http') !== 0) {
 					$redirect_url = FreshRSS_Context::$system_conf->rss_bridge_url . $redirect_url;
 				}
-				
-				// If we have a token and the redirect URL doesn't contain it, add it
-				if (!empty($token) && strpos($redirect_url, 'token=') === false) {
-					$separator = strpos($redirect_url, '?') !== false ? '&' : '?';
-					$redirect_url .= $separator . $token;
+
+				// If we have a token and the redirect URL doesn't contain it, add it as first parameter
+				if (!empty($token_param) && strpos($redirect_url, 'token=') === false) {
+					// Parse URL to insert token as first query parameter
+					$parts = parse_url($redirect_url);
+					$base = $parts['scheme'] . '://' . $parts['host'] . ($parts['path'] ?? '');
+					$query = $parts['query'] ?? '';
+					$fragment = isset($parts['fragment']) ? '#' . $parts['fragment'] : '';
+
+					// Prepend token to existing query parameters
+					$redirect_url = $base . '?' . $token_param . $query . $fragment;
 				}
 				
 				// Parse bridge name from redirect URL
