@@ -2,7 +2,7 @@
 	"name": "RSS-Bridge",
 	"author": "Devon Hess,dmarmor",
 	"description": "Run URLs through <a href=\"https://github.com/rss-bridge/rss-bridge\">RSS-Bridge</a> detection with token authentication support.",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"entrypoint": "RssBridge",
 	"type": "system"
 }
